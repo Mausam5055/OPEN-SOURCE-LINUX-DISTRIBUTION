@@ -2,7 +2,7 @@
 # Script 3: Disk and Permission Auditor
 
 # Use standard directories that exist natively on Git Bash and run fast
-DIRS=("/etc" "/usr/bin" "/usr/lib" "/tmp" "/dev")
+DIRS=("/etc" "/var/log" "/home" "/usr/bin" "/tmp")
 echo "Directory Audit Report"
 echo "----------------------"
 

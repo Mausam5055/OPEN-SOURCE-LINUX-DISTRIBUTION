@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.2.12)  19 MAR 2026 15:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2026.2.12)  19 MAR 2026 15:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -467,7 +467,11 @@ l.109 \newpage
 
 ]
 Chapter 1.
-
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 11
+7.
+(C:\Users\rikik\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+)
 
 [2
 
@@ -497,19 +501,6 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [4]
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 17
-2.
- (C:\Users\rikik\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 201--201
-[]|\T1/ptm/m/n/12 Community-driven fo-rums and
- []
-
-
-Overfull \hbox (11.42339pt too wide) in alignment at lines 193--205
- [] [] [] 
- []
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -519,6 +510,11 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
 [5]
+Overfull \hbox (11.42339pt too wide) in alignment at lines 197--211
+ [] [] [] 
+ []
+
+
 
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -529,26 +525,19 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [6]
 Chapter 3.
-
-Overfull \hbox (5.15134pt too wide) in paragraph at lines 215--216
-\T1/ptm/m/n/12 This script uti-lizes sim-ple \T1/pcr/m/n/12 echo \T1/ptm/m/n/12
- for-mat-ting along-side stan-dard com-mand sub-sti-tu-tion (\T1/pcr/m/n/12 $(.
-..)\T1/ptm/m/n/12 )
- []
-
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 217.
+nput line 223.
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
-(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 218.
+(Font)              Font shape `T1/pcr/m/sl' tried instead on input line 224.
 
 
 [7
 
 ]
-<01_Output.png, id=181, 1384.42218pt x 749.04843pt>
+<01_Output.png, id=207, 1384.42218pt x 749.04843pt>
 File: 01_Output.png Graphic file (type png)
 <use 01_Output.png>
-Package pdftex.def Info: 01_Output.png  used on input line 257.
+Package pdftex.def Info: 01_Output.png  used on input line 263.
 (pdftex.def)             Requested size: 452.9679pt x 245.07228pt.
 
 
@@ -564,12 +553,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.278 else
+l.284 else
            <./01_Output.png>]
-<02_Output.png, id=205, 1388.93906pt x 757.32938pt>
+<02_Output.png, id=231, 1388.93906pt x 757.32938pt>
 File: 02_Output.png Graphic file (type png)
 <use 02_Output.png>
-Package pdftex.def Info: 02_Output.png  used on input line 297.
+Package pdftex.def Info: 02_Output.png  used on input line 303.
 (pdftex.def)             Requested size: 452.9679pt x 246.98427pt.
 
 
@@ -585,12 +574,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.304 
+l.310 
        <./02_Output.png>]
-<03_Output.png, id=229, 1400.98407pt x 752.8125pt>
+<03_Output.png, id=255, 1400.98407pt x 752.8125pt>
 File: 03_Output.png Graphic file (type png)
 <use 03_Output.png>
-Package pdftex.def Info: 03_Output.png  used on input line 341.
+Package pdftex.def Info: 03_Output.png  used on input line 347.
 (pdftex.def)             Requested size: 452.9679pt x 243.39758pt.
 
 
@@ -615,12 +604,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.370   if 
+l.376   if 
            [ $RETRY -ge 3 ]; then <./03_Output.png>]
-<04_Output.png, id=292, 1382.91656pt x 752.0597pt>
+<04_Output.png, id=318, 1382.91656pt x 752.0597pt>
 File: 04_Output.png Graphic file (type png)
 <use 04_Output.png>
-Package pdftex.def Info: 04_Output.png  used on input line 394.
+Package pdftex.def Info: 04_Output.png  used on input line 400.
 (pdftex.def)             Requested size: 452.9679pt x 246.33292pt.
 
 
@@ -636,12 +625,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.4})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.402 ...ash, caption=05\_manifesto\_generator.sh]
-                                                   <./04_Output.png>]
-<05_Output.png, id=321, 1391.95032pt x 740.7675pt>
+l.407 
+       <./04_Output.png>]
+<05_Output.png, id=347, 1391.95032pt x 740.7675pt>
 File: 05_Output.png Graphic file (type png)
 <use 05_Output.png>
-Package pdftex.def Info: 05_Output.png  used on input line 429.
+Package pdftex.def Info: 05_Output.png  used on input line 435.
 (pdftex.def)             Requested size: 452.9679pt x 241.05177pt.
 
 
@@ -666,7 +655,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3.5})
 has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.434 \chapter
+l.440 \chapter
               {Conclusion} <./05_Output.png>]
 Chapter 4.
 
@@ -679,25 +668,25 @@ LaTeX2e <2025-06-01> patch level 1
 L3 programming layer <2025-08-13>
  ***********
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 54CF62E02EEF02587510BEEB5FCF0872;3834.
+(rerunfilecheck)             Checksum: 132BA0E4D64704AC8E095AABE9E8DC14;4766.
  ) 
 Here is how much of TeX's memory you used:
- 13095 strings out of 468133
- 199914 string characters out of 5430712
- 989980 words of memory out of 5000000
- 41338 multiletter control sequences out of 15000+600000
+ 13100 strings out of 468133
+ 199999 string characters out of 5430712
+ 989552 words of memory out of 5000000
+ 41341 multiletter control sequences out of 15000+600000
  663074 words of font info for 80 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,694b,2015s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,12n,79p,560b,2015s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/rikik/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrb8a.
 pfb><C:/Users/rikik/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucrr8
 a.pfb><C:/Users/rikik/AppData/Local/Programs/MiKTeX/fonts/type1/urw/courier/ucr
 ro8a.pfb><C:/Users/rikik/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/ut
 mb8a.pfb><C:/Users/rikik/AppData/Local/Programs/MiKTeX/fonts/type1/urw/times/ut
 mr8a.pfb>
-Output written on report.pdf (16 pages, 583216 bytes).
+Output written on report.pdf (16 pages, 586958 bytes).
 PDF statistics:
- 426 PDF objects out of 1000 (max. 8388607)
- 210 named destinations out of 1000 (max. 500000)
- 186 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 453 PDF objects out of 1000 (max. 8388607)
+ 212 named destinations out of 1000 (max. 500000)
+ 234 words of extra memory for PDF output out of 10000 (max. 10000000)
 

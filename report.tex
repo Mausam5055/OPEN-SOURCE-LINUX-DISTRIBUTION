@@ -11,7 +11,7 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{times}
-\usepackage{courier} % Makes the code font look significantly better
+\usepackage{courier} 
 \usepackage{setspace}
 \usepackage{enumitem}
 \usepackage{array}
@@ -37,16 +37,16 @@
 
 % Beautified Listings setup for code blocks (VS Code Dark Theme)
 \lstset{
-    basicstyle=\ttfamily\footnotesize\color{vscodetext}, % Light gray text
-    keywordstyle=\color{vscodekeyword}\bfseries,      % Blue keywords
-    commentstyle=\color{vscodecomment}\itshape,       % Green comments
-    stringstyle=\color{vscodestring},                 % Orange strings
-    numbers=left,                                      % Add line numbers for an IDE look
-    numberstyle=\tiny\color{vscodelinenumber},        % Gray numbers
+    basicstyle=\ttfamily\footnotesize\color{vscodetext},
+    keywordstyle=\color{vscodekeyword}\bfseries,
+    commentstyle=\color{vscodecomment}\itshape,
+    stringstyle=\color{vscodestring},
+    numbers=left,
+    numberstyle=\tiny\color{vscodelinenumber},
     numbersep=10pt,
-    backgroundcolor=\color{vscodebg},                 % Dark vs code background
-    frame=none,                                        % Solid dark box
-    xleftmargin=15pt,                                 % Padding
+    backgroundcolor=\color{vscodebg},
+    frame=none,
+    xleftmargin=15pt,
     framexleftmargin=15pt,
     framexrightmargin=5pt,
     framextopmargin=5pt,
@@ -69,7 +69,7 @@
 % Chapter and section formatting compressed
 \titleformat{\chapter}[display]
 {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{10pt}{\Huge}
-\titlespacing*{\chapter}{0pt}{-30pt}{20pt} % Pulls chapters higher up the page
+\titlespacing*{\chapter}{0pt}{-30pt}{20pt}
 
 \onehalfspacing
 
@@ -112,107 +112,113 @@
 
 \chapter{Introduction \& Overview}
 
-When we look at the immense scale of modern software, from cloud servers to smartphone applications, it is easy to assume they were all engineered within the walls of mega-corporations. However, if you peek under the hood of the internet, you will find that much of it runs on an entirely different model: Open Source. Open source isn't just about getting software for free; it represents a massive paradigm shift in how knowledge is shaped, distributed, and owned. When global communities can contribute, review, and patch code openly, systems evolve faster and become far more secure than they ever could in proprietary silos.
+When we think about huge apps or websites today, we usually picture big tech companies building everything behind closed doors. But actually, a massive part of the internet runs on something completely different: Open Source software. Open source isn't just about getting free stuff; it's a totally different way of sharing knowledge. When developers around the world can look at, fix, and improve the same code, things get built faster and become way more secure than if they were hidden away.
 
-This capstone project is an exploration of that ecosystem. Because every developer builds their work on top of the foundation created by others, understanding open source isn't a luxury---it is a fundamental requirement of modern software engineering.
+For this project, I chose to look into **Git**. Even though I use Git all the time to save my code for classes, I never really stopped to think about how it actually works or why it was made. We just type \texttt{git commit} without knowing the history behind it. In this report, I will talk about where Git came from, why its open-source license matters, and share some shell scripts I wrote to see how things run on Linux.
 
 \section{Chosen Software: Git}
 
-At its core, Git is a distributed version control system. It is the tool that developers globally use to track changes to files over time, coordinate massive team projects without overwriting each other's work, and quickly revert back to safe states if a bug is introduced. Compared to older generation tools, Git does not require a single central server to hold the code's history; every single user's computer holds a complete, standalone clone of the entire repository history.
+Git is what we call a distributed version control system. Basically, it's a tool that lets developers track changes to their files over time, work together on group projects without deleting each other's work, and easily undo mistakes if something breaks. Unlike older tools, Git doesn't need to connect to one main central server to do its job. Everyone gets their own full, working copy of the project history right on their laptop. 
 
-Git is the foundation of the modern developer ecosystem. Platforms built around it, like GitHub, GitLab, and Bitbucket, host hundreds of millions of open-source projects. To contribute to any modern software project, fluency in Git is virtually mandatory. However, beyond its popularity, it matters because it stands as a testament to open-source philosophy. It was not built by a committee to be monetized and sold as a subscription. It was born out of frustration with existing proprietary tools, coded rapidly to solve a genuine problem, and then openly shared with the world.
+Git is basically everywhere now. Websites like GitHub and GitLab host millions of open-source projects using it. But what makes it so cool isn't just that it's popular---it's how it was made. It wasn't built by a corporation to sell user subscriptions. It was coded really quickly just to fix a genuine problem the Linux team was having, and then it was shared with the entire world for free.
 
 \chapter{Research Analysis}
 
 \section{Part A --- Origin and Philosophy}
 
 \subsection{The Problem Before Git}
-To truly appreciate Git, we have to look back at the dark ages of version control. The preceding era was dominated by centralized systems like Concurrent Versions System (CVS) and Subversion (SVN). They operated on a centralized model. This meant that the entire history of a project lived on one single server. If a developer wanted to commit code, they had to be connected to that server. If the server crashed, productivity ground to an absolute halt. Branching and merging was incredibly tedious and prone to major conflicts.
+Before Git existed, managing code versions was pretty painful. People used systems like CVS or SVN. These were centralized, meaning the code lived on one main server. If you wanted to save your work, you needed an internet connection to that server. If the server ever went down or crashed, nobody could work. Doing simple things like branching (splitting code to test a new feature) caused massive headaches.
 
-The actual spark that ignited Git came from the development of the Linux OS kernel itself. For years, Linus Torvalds and his team managed the massive Linux project using a proprietary system called BitKeeper. In 2005, an argument broke out when some community members attempted to reverse-engineer BitKeeper's network protocols. Seeing this as a violation, the company aggressively pulled the free licenses. Suddenly, the largest open-source project in the world had no version control system.
+The story of Git actually starts directly with Linux. Linus Torvalds and his team were building the Linux operating system using a closed-source tool called BitKeeper because the company let them use it for free. But in 2005, there was some drama. Someone in the community tried to reverse-engineer how BitKeeper worked, so the company got mad and revoked the free licenses. Suddenly, the Linux team had no way to manage their massive project.
 
 \subsection{The Origin Story of Git}
-Refusing to return to clunky centralized tools like CVS or pay a massive corporate fee, Linus Torvalds decided to just build his own. In April 2005, Torvalds began writing Git. Pushed by pure necessity and an intimate knowledge of kernel development needs, the first functioning version was done in under two weeks. 
+Instead of paying for an expensive enterprise tool or going back to the old, clunky centralized systems, Linus decided to just write his own. In April 2005, he started coding Git. Because he knew exactly what the Linux team needed, he got the first version working in just a couple of weeks. 
 
-He built it around a few core, uncompromising principles:
+He wanted it to follow a few simple rules:
 \begin{itemize}
-    \item \textbf{Speed}: Handling millions of lines of code had to be exceptionally fast.
-    \item \textbf{Distributed Architecture}: No single point of failure; every dev had a full clone.
-    \item \textbf{Data Integrity}: It uses cryptographic SHA-1 hashes so that once data is saved, it is mathematically impossible to corrupt or alter it silently.
+    \item \textbf{Speed}: It had to be incredibly fast because the Linux kernel has millions of lines of code.
+    \item \textbf{Distributed}: No single point of failure; every developer needed their own full copy.
+    \item \textbf{Data Safety}: It uses special cryptographic hashes so that once code is saved, it can't be secretly corrupted or changed.
 \end{itemize}
 
 \subsection{License Analysis: GPL v2}
-Git is licensed underneath the GNU General Public License version 2 (GPL v2). The Free Software Foundation outlines four freedoms that code must meet to be considered truly "Free", and Git provides all four:
-\begin{enumerate}
-    \item \textbf{Freedom 0 (Run):} You can use Git for absolutely whatever you want.
-    \item \textbf{Freedom 1 (Study \& Change):} The entire source code is globally available.
-    \item \textbf{Freedom 2 (Redistribute):} You have the right to copy and share the software.
-    \item \textbf{Freedom 3 (Share Modifications):} You have the legal right to distribute improved versions.
-\end{enumerate}
+Git uses the GNU General Public License version 2 (GPL v2), which is the exact same license used for Linux. The Free Software Foundation says truly "free" software needs four freedoms: the freedom to run the program, the freedom to study and change the code, the freedom to share it, and the freedom to share your improvements. Git checks all those boxes perfectly. 
 
-Companies absolutely can sell Git for profit. However, GPL v2 is a "copyleft" license. The strict catch is that if a company modifies Git and distributes it, they are legally bound to release the source code of their modifications under that same GPL license. They cannot hide the code. 
+A lot of people think companies can't sell open-source software, but they can! The catch is that GPL is a "copyleft" license. If a company modifies Git and shares it, they have to share their new source code under the GPL too. You can't just take the community's hard work, add a feature, and hide the code to sell it. 
 
-The **MIT License**, on the other hand, is highly permissive ("Do whatever you want, just don't sue me"). You do not have to share your modifications. The **GPL** prioritizes community freedom over frictionless corporate use. Because Git is foundational infrastructure, the GPL is the perfect choice to prevent a company from monopolizing it. If I were releasing infrastructure code today, I would absolutely choose the GPL to protect it.
+This is very different from the MIT License, which is way more relaxed and lets people do whatever they want (even close the source code) as long as they don't sue the original creator. Because Git is so important to how we build software, the GPL is the perfect choice to stop giant companies from monopolizing it. If I were building a big tool today, I would definitely pick GPL to protect it.
 
-"Free as in beer" refers to cost (e.g., a freemium app). "Free as in speech" refers to liberty. It means you aren't trapped by the manufacturer. You genuinely own the tool.
+When developers talk about "free as in beer versus free as in speech", they mean two different things. A free app on your phone is "free as in beer": it costs zero dollars, but it's locked down and you don't actually own it. Open-source software is "free as in speech": you have the liberty and rights to see how it works and change it.
 
 \subsection{The Ethics of Open Source}
-There is a powerful ethical argument for open source: software is knowledge, and locking knowledge behind copyright limits humanity's ability to learn. My stance is that foundational infrastructure (OS, networking, compilers) should always be open source as a public good, but application-level software should retain the right to be proprietary so developers can financially survive.
+Ethically, I think foundational tools like operating systems, web servers, and databases should always be open source so everyone benefits. But I also think it's okay for specific apps, like video games, to be closed source so developers can actually make a living. 
 
-Open source relies heavily on volunteer developers. At first glance, companies extracting value from this looks unethical. However, no contributor is forced to volunteer. As long as those companies actively participate, fund, and give back to the ecosystem instead of just taking from it, the relationship remains highly ethical.
-
-Isaac Newton's phrase "standing on the shoulders of giants" is literal in software. A web app runs on a browser written in C++, which compiles on GCC, which runs over the Linux Kernel. Everything we build sits atop invisible layers of open-source legacy.
+It is totally fine for huge companies to use open source to make money, as long as they give back by funding the projects or hiring the developers who maintain them. In programming, we say we "stand on the shoulders of giants." This just means we aren't starting from scratch. When I write a script, it runs on Linux, using tools someone else built years ago. We literally build everything on top of the free gifts left by past developers.
 
 \section{Part B --- Linux Footprint}
 
-This section breaks down how Git natively behaves when deployed on a standard Linux environment.
+This section briefly looks at how Git lives and behaves on a standard Linux computer.
 
 \subsection{Installation Method}
-Git is easily acquired via any Linux package manager. On Debian/Ubuntu machines, it's as simple as:
+Installing Git on a Linux machine like Ubuntu is super easy. You just use the default APT package manager:
 \begin{lstlisting}[language=bash]
 sudo apt update
 sudo apt install git
 \end{lstlisting}
 
-\subsection{Directory Structure \& Permissions}
-Git does not run as an invisible background daemon. The core executable lives cleanly in \texttt{/usr/bin/git}. Any repository you manage spawns a hidden \texttt{.git} system folder inside the root of your project directory, which safely houses the entire algorithmic history isolated from the rest of your system.
+\subsection{Directory Structure}
+The main executable program sits cleanly in \texttt{/usr/bin/git}. Whenever you use it in a project folder, it creates a hidden \texttt{.git} folder right there to store all the actual tracking history, keeping everything isolated from the rest of your system. Your personal settings, like your email and name, are kept quietly in a \texttt{\~{}/.gitconfig} file inside your home folder. 
 
-Git operations run purely under the permissions of the local user invoking them. Unlike web servers, Git never demands root privileges. User-specific keys and aliases are kept separated in the \texttt{/.gitconfig} file inside the individual's user home directory. It updates securely through the OS package manager (`apt upgrade` or `yum update`).
+\subsection{User and Permissions}
+Git operations run purely under the permissions of whoever is logged in. It never demands root (admin) privileges to do daily commits or formatting. This matters a lot for security because if a normal user accidentally runs a destructive Git command, they can only ruin their own files, not the whole server.
+
+\subsection{Service Behavior}
+Instead of running as a heavy background service constantly eating up RAM, Git is just a Command Line Interface (CLI) tool. It only wakes up, processes your command, and immediately goes back to sleep when you type something.
+
+\subsection{Update Model}
+Security patches and bug fixes are continuously maintained by the open-source community. These updates are then safely bundled and handled securely through the OS package manager (like \texttt{apt upgrade}), so you never have to hunt down sketchy installers from the internet.
 
 \section{Part C --- The FOSS Ecosystem}
 
-Git pulls heavily on standard GNU libraries (glibc), \texttt{zlib} for file compression, and \texttt{OpenSSL} to handle HTTPS and its cryptographic SHA-1 hashes. 
+\subsection{Dependencies}
+Since Git was built in C, it depends heavily on standard GNU system tools. It also relies on external libraries like \texttt{OpenSSL} to handle secure internet connections and \texttt{zlib} for zipping files efficiently.
 
-Git single-handedly birthed an entire trillion-dollar DevOps industry. It enables Platforms like **GitHub** and **GitLab**. It forms the spine of modern CI/CD (Continuous Integration/Continuous Deployment) pipelines. Without Git tracking exact, branch-based changes, tools wouldn't know when to safely trigger automated tests and live-server deployments within LAMP (Linux, Apache, MySQL, PHP) networking environments.
+\subsection{What Git Enables \& The Web Ecosystem}
+Git completely changed the software industry. It directly enabled platforms like GitHub and GitLab. More importantly, it forms the backbone of the modern web ecosystem (like LAMP stacks). Without Git tracking exactly what changed in the code, automated tools wouldn't know when to safely test or deploy new updates to a live website. It acts as the invisible glue holding DevOps together.
+
+\subsection{Community and Governance}
+Despite running massive platforms like GitHub, Git's own internal development community is incredibly old-school. Updates and patches are still discussed by developers passing plain-text emails back and forth on a giant mailing list. It functions as an open, transparent dictatorship overseen by a core maintainer.
 
 \section{Part D --- Open Source vs Proprietary}
 
-We can contrast Git with a proprietary heavyweight like Microsoft's older Team Foundation Version Control (TFVC).
+We can compare Git with an older proprietary tool like Microsoft's Team Foundation Version Control (TFVC).
 
 \begin{center}
 \begin{longtable}{|p{3cm}|p{6cm}|p{6cm}|}
 \hline
-\textbf{Dimension} & \textbf{Git (Open Source GPL)} & \textbf{TFVC (Proprietary)} \\
+\textbf{Feature} & \textbf{Git (Open Source GPL)} & \textbf{TFVC (Proprietary)} \\
 \hline
-\textbf{Cost} & 100\% Free without user limits. & Paid tiers exist, bundled with server licenses. \\
+\textbf{Cost} & 100\% Free. You can use it as much as you want without user limits. & Starts free but has very expensive paid tiers for bigger enterprise setups. \\
 \hline
-\textbf{Security} & Source code is globally audited by experts. & Only Microsoft audits the codebase internally. \\
+\textbf{Security} & Code is double-checked by thousands of smart people online. & Only Microsoft employees can look at the code to fix internal bugs. \\
 \hline
-\textbf{Support} & Community-driven forums and documentation. & SLA (Service Level Agreements) and IT support. \\
+\textbf{Support} & You search Google or Reddit, and read community forums. & You get official corporate IT support from Microsoft. \\
 \hline
-\textbf{Flexibility} & Distributed architecture. Works totally offline. & Centralized architecture. Relies totally on the server. \\
+\textbf{Flexibility} & You can do everything entirely offline on a laptop on an airplane. & You need to be connected to the central server to do major work. \\
+\hline
+\textbf{Control} & You fully control your own local codebase history. & The central server controls the master history timeline. \\
 \hline
 \end{longtable}
 \end{center}
 
-I would recommend Git 100 times out of 100. It is universally accepted, extremely fast, works offline, and avoids Vendor Lock-In. Unsurprisingly, its superiority is so absolute that even Microsoft officially moved Windows OS development over to Git a few years ago. While I wouldn't contribute directly to Git's C core, I happily contribute to the FOSS ecosystem by using it cleanly, reporting bugs, and writing documentation.
+Overall, I would absolutely recommend Git for any real-world scenario. It's free, it works fully offline, and essentially everyone uses it. Even Microsoft eventually gave up pushing TFVC and switched their own Windows development teams over to Git. While I probably won't be writing raw C code to contribute to Git's core anytime soon, I am happy to support open source by using it properly and sharing my own projects freely!
 
 \chapter{Practical Shell Scripts}
 
-This section details five shell scripts I engineered to practically interact with the system environment and test basic concepts like iteration, conditional checks, string manipulation, and standard data extraction.
+For this project, I wrote five shell scripts to practice using the Linux terminal. It helped me learn how to use loops, if-statements, and command line tools to extract data cleanly.
 
 \section{Script 1: System Identity Report}
-This script utilizes simple \texttt{echo} formatting alongside standard command substitution (\texttt{\$(...)}) to introduce the OS, the logged-in user, up-time, and state the open source license dynamically.
+This is a simple script that grabs basic info about the computer. It uses variables and the \texttt{\$(command)} syntax to run things like \texttt{uname} and \texttt{uptime}, and then prints them out to introduce the system.
 
 \begin{lstlisting}[language=bash, caption=01\_system\_identity.sh]
 #!/bin/bash
@@ -255,12 +261,12 @@ read -p "Press [Enter] to exit..."
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{01_Output.png}
-    \caption{Execution of System Identity Report script.}
+    \caption{Output showing system info and the GPL license message.}
 \end{figure}
 
 
 \section{Script 2: Package Inspector}
-This script combines an \texttt{if-else} loop to test if multiple package managers (\texttt{dpkg} and command check) detect Git as installed. It follows it up with a logical \texttt{case} control block to output behaviors based on the chosen FOSS software.
+This script checks if a piece of software is installed. It uses an `if-else` block to look for the application package, and then uses a `case` statement to print out a fun fact depending on what the software is.
 
 \begin{lstlisting}[language=bash, caption=02\_package\_inspector.sh]
 #!/bin/bash
@@ -295,18 +301,18 @@ read -p "Press [Enter] to exit..."
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{02_Output.png}
-    \caption{Execution of Package Inspector script.}
+    \caption{Script checking for Git and outputting its custom message.}
 \end{figure}
 
 
 \section{Script 3: Disk and Permission Auditor}
-This script heavily leverages a \texttt{for} loop iterating over a Bash array. It pipes natively raw system strings from \texttt{ls -ld} and \texttt{df -h} securely into \texttt{awk} and \texttt{cut} to strip out all unnecessary data and return isolated metadata blocks.
+This script uses a \texttt{for} loop to check a list of folders. It runs commands like \texttt{ls -ld} and \texttt{df -h}, and then uses \texttt{awk} and \texttt{cut} to slice up the text so we only see the exact file sizes and permissions we actually care about.
 
 \begin{lstlisting}[language=bash, caption=03\_disk\_auditor.sh]
 #!/bin/bash
 # Script 3: Disk and Permission Auditor
 
-DIRS=("/etc" "/usr/bin" "/usr/lib" "/tmp" "/dev")
+DIRS=("/etc" "/var/log" "/home" "/usr/bin" "/tmp")
 echo "Directory Audit Report"
 
 for DIR in "${DIRS[@]}"; do
@@ -322,7 +328,7 @@ for DIR in "${DIRS[@]}"; do
  else
   echo "$DIR does not exist on this system"
  fi
-done
+ done
 
 GIT_CONFIG="$HOME/.gitconfig"
 if [ -f "$GIT_CONFIG" ]; then
@@ -339,12 +345,12 @@ read -p "Press [Enter] to exit..."
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{03_Output.png}
-    \caption{Execution of Disk Auditor script showing df, du, and awk slicing.}
+    \caption{The loop returning the chopped up permission and filesize text.}
 \end{figure}
 
 
 \section{Script 4: Log File Analyzer}
-Log analyzer actively searches inputs through a massive \texttt{while read} loop while tracking a numerical counter, showing how scripts scan for system-critical failure states without loading massive files fully into memory.
+This script takes arguments from the command line (\texttt{\$1} and \texttt{\$2}). It uses a \texttt{while read} loop to scan through a huge file line by line to count how many times a word like "error" shows up, which is great for finding bugs.
 
 \begin{lstlisting}[language=bash, caption=04\_log\_analyzer.sh]
 #!/bin/bash
@@ -392,12 +398,12 @@ read -p "Press [Enter] to exit..."
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{04_Output.png}
-    \caption{Execution of Log File Analyzer utilizing loop evaluation.}
+    \caption{The script catching an error condition and printing the summary.}
 \end{figure}
 
 
 \section{Script 5: Manifesto Generator}
-This requests three unique inputs interactively. It logically concatenates those strings to completely write out a dynamic generated text file via redirection (\texttt{>>}). 
+This is an interactive script that uses \texttt{read} to ask the user questions while it runs in the terminal. Once it gets your answers, it glues them together into a paragraph and uses \texttt{>>} redirection to save it all into a new \texttt{.txt} file.
 
 \begin{lstlisting}[language=bash, caption=05\_manifesto\_generator.sh]
 #!/bin/bash
@@ -427,13 +433,13 @@ read -p "Press [Enter] to exit..."
 \begin{figure}[H]
     \centering
     \includegraphics[width=\textwidth]{05_Output.png}
-    \caption{Execution of Manifesto Generator handling text file I/O operations.}
+    \caption{The script printing the newly generated text file onto the screen.}
 \end{figure}
 
 
 \chapter{Conclusion}
-This assignment was highly illuminating. Before compiling this audit, my understanding of Linux and FOSS felt intimidating and entirely theoretical. Building out real functional automation scripts to audit system directories and dynamically parse software versions showed me the incredible connective power of the Linux CLI architecture. I finally learned that you don't always need to build extremely complex binary tools to engineer interesting behaviour; successfully chaining together lightweight operations like `awk`, `cut`, and `grep` creates resilient workflows.
+This capstone project was really eye-opening for me. Before this, the Linux terminal and bash scripting felt pretty intimidating. But actually building these scripts to check folders and read log files showed me how simple utilities like \texttt{awk} and \texttt{grep} can be combined to do really powerful things. 
 
-Additionally, digging into the GPL ideology powering tools like Git made the history of modern programming significantly more obvious. Open source clearly isn't just charity or academic theory; it is the critical collaborative scaffolding that makes all large-scale internet tech possible. It is thrilling to realize that as my career grows, everything I construct will literally be running atop the silent, massive shoulders of these free community toolsets. 
+Learning about the GPL license and why Linus Torvalds built Git also made me appreciate open source a lot more. It's not just a nerdy hobby; it's the actual engine that makes modern internet development possible. It feels pretty cool knowing that whatever I build in the future will be running on the same free tools that the whole community shares and maintains.
 
 \end{document}
