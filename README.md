@@ -68,7 +68,7 @@ The log analyzer requires you to pass a file to read. You can optionally pass a 
 ---
 
 ## 📋 Sample Output 
-Here is a quick example of what `01_system_identity.sh` looks like when you run it:
+Here is a quick text example of what `01_system_identity.sh` looks like when you run it:
 ```text
 ===================================================
        Welcome to My Open Source Audit
@@ -81,6 +81,26 @@ Logged in as  : student
 Home folder   : /home/student
 Uptime        : up 2 hours, 15 minutes
 ```
+
+---
+
+### Terminal Execution Screenshots
+Here are the actual terminal execution snapshots demonstrating all five scripts in action:
+
+**1. System Identity Report**
+<img src="01_Output.png" alt="01 System Identity" width="700">
+
+**2. Package Inspector**
+<img src="02_Output.png" alt="02 Package Inspector" width="700">
+
+**3. Disk Auditor**
+<img src="03_Output.png" alt="03 Disk Auditor" width="700">
+
+**4. Log Analyzer**
+<img src="04_Output.png" alt="04 Log Analyzer" width="700">
+
+**5. Manifesto Generator**
+<img src="05_Output.png" alt="05 Manifesto Generator" width="700">
 
 ---
 

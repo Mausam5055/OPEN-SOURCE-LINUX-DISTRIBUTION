@@ -8,6 +8,7 @@ COUNT=0
 
 if [ ! -f "$LOGFILE" ]; then
  echo "Error: File $LOGFILE not found."
+ read -p "Press [Enter] to exit..."
  exit 1
 fi
 
@@ -25,6 +26,7 @@ while true; do
   
   if [ $RETRY -ge 3 ]; then
     echo "Error: File is still empty. Exiting."
+    read -p "Press [Enter] to exit..."
     exit 1
   fi
 done
@@ -44,3 +46,7 @@ if [ $COUNT -gt 0 ]; then
   echo "--- Last 5 Matching Lines ---"
   grep -i "$KEYWORD" "$LOGFILE" | tail -n 5
 fi
+
+# Prevent the terminal window from closing immediately when run on Windows
+echo ""
+read -p "Press [Enter] to exit..."

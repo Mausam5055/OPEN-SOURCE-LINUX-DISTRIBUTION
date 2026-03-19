@@ -1,0 +1,6 @@
+### My Open Source Manifesto ###
+Date: 19 March 2026
+
+I believe in open source because tools like git make my daily life easier.
+To me, true freedom means free will, which is exactly the core philosophy of open source.
+If I had the chance to contribute, I would build MERN Stack Project and share it freely with the world!

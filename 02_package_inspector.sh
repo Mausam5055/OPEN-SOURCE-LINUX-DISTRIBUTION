@@ -5,10 +5,15 @@ PACKAGE="git" # Your chosen software
 
 # Check if package is installed
 # Using dpkg as it's the standard for Debian/Ubuntu systems
-if dpkg -l "$PACKAGE" &>/dev/null; then
+if dpkg -l "$PACKAGE" &>/dev/null || command -v "$PACKAGE" &>/dev/null; then
  echo "$PACKAGE is installed."
  # dpkg -s provides detailed info similar to rpm -qi
- dpkg -s "$PACKAGE" | grep -E '^Version|^Description' | head -n 2
+ if command -v dpkg &>/dev/null && dpkg -s "$PACKAGE" &>/dev/null; then
+  dpkg -s "$PACKAGE" | grep -E '^Version|^Description' | head -n 2
+ else
+  # Fallback for environments without dpkg (like Git Bash on Windows)
+  echo "Version: $($PACKAGE --version)"
+ fi
 else
  echo "$PACKAGE is NOT installed."
 fi
@@ -34,3 +39,7 @@ case $PACKAGE in
    echo "$PACKAGE: Another great tool in the open source ecosystem"
    ;;
 esac
+
+# Prevent the terminal window from closing immediately when run on Windows
+echo ""
+read -p "Press [Enter] to exit..."

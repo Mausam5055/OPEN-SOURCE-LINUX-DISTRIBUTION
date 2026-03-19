@@ -1,9 +1,9 @@
 #!/bin/bash
 # Script 1: System Identity Report
-# Author: [Your Name] | Course: Open Source Software
+# Author: Mausam Kar | Course: Open Source Software
 
 # --- Variables ---
-STUDENT_NAME="[Your Name]" # Fill in your name
+STUDENT_NAME="Mausam Kar" # Fill in your name
 SOFTWARE_CHOICE="Git" # Fill in your chosen software
 
 # --- System info ---
@@ -29,3 +29,7 @@ echo "--------------------------------"
 echo "License Message:"
 echo "This Linux operating system is open-source and primarily distributed under the GPL (General Public License)."
 echo "================================"
+
+# Prevent the terminal window from closing immediately when run on Windows
+echo ""
+read -p "Press [Enter] to exit..."

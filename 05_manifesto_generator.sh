@@ -27,3 +27,7 @@ echo ""
 echo "Manifesto saved to $OUTPUT"
 echo "--------------------------------"
 cat "$OUTPUT"
+
+# Prevent the terminal window from closing immediately when run on Windows
+echo ""
+read -p "Press [Enter] to exit..."
