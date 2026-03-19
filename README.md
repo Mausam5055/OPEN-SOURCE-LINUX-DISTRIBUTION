@@ -87,20 +87,34 @@ Uptime        : up 2 hours, 15 minutes
 ### Terminal Execution Screenshots
 Here are the actual terminal execution snapshots demonstrating all five scripts in action:
 
-**1. System Identity Report**
-<img src="01_Output.png" alt="01 System Identity" width="700">
-
-**2. Package Inspector**
-<img src="02_Output.png" alt="02 Package Inspector" width="700">
-
-**3. Disk Auditor**
-<img src="03_Output.png" alt="03 Disk Auditor" width="700">
-
-**4. Log Analyzer**
-<img src="04_Output.png" alt="04 Log Analyzer" width="700">
-
-**5. Manifesto Generator**
-<img src="05_Output.png" alt="05 Manifesto Generator" width="700">
+<table>
+  <tr>
+    <td align="center">
+      <b>1. System Identity Report</b><br>
+      <img src="01_Output.png" width="400" alt="01 System Identity">
+    </td>
+    <td align="center">
+      <b>2. Package Inspector</b><br>
+      <img src="02_Output.png" width="400" alt="02 Package Inspector">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <b>3. Disk Auditor</b><br>
+      <img src="03_Output.png" width="400" alt="03 Disk Auditor">
+    </td>
+    <td align="center">
+      <b>4. Log Analyzer</b><br>
+      <img src="04_Output.png" width="400" alt="04 Log Analyzer">
+    </td>
+  </tr>
+  <tr>
+    <td align="center" colspan="2">
+      <b>5. Manifesto Generator</b><br>
+      <img src="05_Output.png" width="400" alt="05 Manifesto Generator">
+    </td>
+  </tr>
+</table>
 
 ---
 
